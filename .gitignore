@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+
+# Local research scans and source manuals
+DevDocs/references/
