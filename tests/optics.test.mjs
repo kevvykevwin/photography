@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {apertureOptions,lenses,horizontalFov,exposureStops,depthOfField,circleOfConfusion,settingsResult} from '../src/optics.js';
+const base={lens:300,film:'portra',aperture:8,shutter:500,focus:20,light:'daylight',support:'tripod',scenario:'bird'};
+test('ISO 800 compensates exactly for doubling shutter denominator',()=>{assert.equal(exposureStops({...base,film:'cinestill',shutter:1000}),exposureStops(base));});
+test('one full aperture stop compensates one shutter stop',()=>{assert.ok(Math.abs(exposureStops({...base,aperture:4,shutter:2000})-exposureStops(base))<1e-10);});
+test('Reflex aperture is fixed and impossible aperture cannot change its result',()=>{assert.deepEqual(apertureOptions(lenses[3]),[8]);assert.equal(settingsResult({...base,lens:500,aperture:2}).stops,settingsResult({...base,lens:500,aperture:8}).stops);});
+test('horizontal field angles use a 36mm film width',()=>{assert.ok(Math.abs(horizontalFov(50)-39.5978)<.001);assert.ok(horizontalFov(500)<horizontalFov(300));});
+test('DOF includes focus distance and widens when stopped down',()=>{const a=depthOfField(300,4.5,20),b=depthOfField(300,16,20);assert.ok(a.near<20&&a.far>20);assert.ok(b.near<a.near&&b.far>a.far);assert.equal(circleOfConfusion(300,8,20,20),0);});
+test('far focus at hyperfocal reaches infinity',()=>{assert.equal(depthOfField(28,8,1000).far,Infinity);});
+test('valid bird setup passes; focus miss and wrong lens fail independently',()=>{assert.equal(settingsResult(base).passed,true);assert.equal(settingsResult({...base,focus:3}).checks.find(c=>c.label==='Focus').pass,false);assert.equal(settingsResult({...base,lens:28}).checks.find(c=>c.label==='Framing').pass,false);});
+test('tripod does not cure subject movement',()=>{assert.equal(settingsResult({...base,scenario:'cyclist',lens:50,focus:30,shutter:60}).checks.find(c=>c.label==='Movement').pass,false);});
+test('each scenario has an achievable daylight setup',()=>{for(const s of [{scenario:'bird',lens:300,focus:20,aperture:8,shutter:500},{scenario:'mountain',lens:28,focus:1000,aperture:16,shutter:500},{scenario:'cyclist',lens:50,focus:30,aperture:8,shutter:500},{scenario:'portrait',lens:50,focus:4,aperture:4,shutter:500}])assert.equal(settingsResult({...base,...s}).passed,true,s.scenario);});
+test('tungsten exercise explicitly lowers illumination by three stops',()=>{assert.equal(exposureStops({...base,light:'tungsten'}),exposureStops(base)-3);});

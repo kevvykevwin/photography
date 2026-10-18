@@ -13,11 +13,11 @@ I’m building this to learn photography and share the process. It is a work in 
 - Practice with four photographic scenes, a parts guide, and scenario questions with explanations.
 - Capture simulated frames to a temporary contact sheet and revisit their settings.
 
-The prototype currently exists locally. This repository starts with the project documentation and license; application source will follow. There is no public deployment yet.
+The application source is available here as a work in progress. There is no hosted deployment yet.
 
 ## Development
 
-The local prototype uses JavaScript, Three.js, and Vite. Once the application source is published:
+The prototype uses JavaScript, Three.js, and Vite:
 
 ```sh
 npm ci
@@ -31,7 +31,7 @@ npm test       # Optics calculations
 npm run build # Production files in dist/
 ```
 
-Local contributors with the workspace verification wrapper should run tests and builds through that wrapper, as described in `CLAUDE.md` when the source is available.
+Local contributors with the workspace verification wrapper should run tests and builds through that wrapper, as described in `CLAUDE.md`.
 
 ## Accuracy and references
 
@@ -49,6 +49,6 @@ The workshop will be deployed on a dedicated subdomain after the build is ready.
 
 Original project code is licensed under the [MIT License](LICENSE).
 
-Third-party photographs, manuals, diagrams, trademarks, and dependency code are not relicensed by this project. They retain their respective rights and licenses. Reference manual scans are local research material and are not included in the public repository. Photographic source attribution will accompany published application assets.
+Third-party photographs, manuals, diagrams, trademarks, and dependency code are not relicensed by this project. They retain their respective rights and licenses. Reference manual scans are local research material and are not included in the public repository. Photographic source links and license information are in `public/credits.html`; some photographer identities remain unverified.
 
 This is an independent learning project, unaffiliated with Nikon, Kodak, or CineStill.
