@@ -4,3 +4,6 @@ dist/
 
 # Local research scans and source manuals
 DevDocs/references/
+
+# Local Netlify folder
+.netlify

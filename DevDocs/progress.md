@@ -35,7 +35,7 @@ Parent verified 11 browser assertions: 500mm fixed aperture, ISO/shutter compens
 - Lens geometry is an original schematic, not a service-manual reconstruction.
 - 500mm is fixed at f/8. Reflex generation is not confirmed.
 - Blur is applied to the whole plane, not per depth.
-- Local prototype scope. No hosting, commit, or push has occurred.
+- Prototype source published to kevvykevwin/photography. Netlify hosts the standalone workshop; the custom domain awaits owner-managed Namecheap DNS.
 
 ## Limitations (keep visible in any external copy)
 
@@ -51,7 +51,7 @@ Parent verified 11 browser assertions: 500mm fixed aperture, ISO/shutter compens
 | Issue | Status | Notes |
 |-------|--------|-------|
 | Local verification | Passed | 10 optics tests, browser checks, and production build passed. |
-| Source attribution audit before external release | Yellow | Four Unsplash plates. Photographer names not yet verified from original pages (`public/credits.html`). Design sources not link-checked. Local use is not blocked. |
+| Source attribution audit before external release | Yellow | Source links and Unsplash license reviewed; license permits distribution without attribution. Photographer identities remain unconfirmed and are not asserted. Manual scans remain excluded. See public/credits.html. |
 | Reflex-Nikkor 500mm generation unconfirmed | Yellow | Stated as unconfirmed in `DevDocs/design.md` and in-app notes. Needs a source before any claim. |
 | Mobile stacked layout | Verified | Render inspected at 390px; no horizontal overflow. |
 
@@ -137,6 +137,13 @@ Connected origin to kevvykevwin/photography and created initial main commit 821f
 
 ## Deploy Log
 
+### 2026-10-19 11:28 — main (main-commit)
+<!-- deploy:2d3e014-1792376897-09bXGG -->
+- Files: 3 changed (`(root) (3)`)
+  - `.gitignore`
+  - `README.md`
+  - `netlify.toml`
+
 ### 2026-10-18 23:33 — main (main-commit)
 <!-- deploy:821f0dc-1792333949-yNksxa -->
 - Files: 21 changed (`(root) (6), src/ (6), public/ (5), DevDocs/ (3), tests/ (1)`)
@@ -156,3 +163,9 @@ Connected origin to kevvykevwin/photography and created initial main commit 821f
   - `public/images/portrait.jpg`
   - `src/camera.js`
   - +6 more
+
+### Netlify hosting — 2026-10-19
+
+Created kevintnguyen-photography in kevinnguyen team, linked GitHub main with npm run build and dist; production NODE_VERSION=22. Git-connected deploy 6ad57fbf90884ec8a50ba6a4 reached ready at source 2d3e014. Verified workshop visually at its Netlify URL. Custom domain configured as photography.kevintnguyen.com; user will add Namecheap CNAME photography → kevintnguyen-photography.netlify.app. DNS and TLS remain pending. Netlify.toml stores build/runtime settings and immutable caching only for hashed assets.
+
+Source attribution audit: four preserved Unsplash CDN identifiers and current Unsplash license checked. License allows distribution without mandatory attribution; photographer identities remain unverified and are labeled accordingly. No manual scans published. The separate personal-site introduction is local only at owner request.

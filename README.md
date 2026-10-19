@@ -13,7 +13,7 @@ I’m building this to learn photography and share the process. It is a work in 
 - Practice with four photographic scenes, a parts guide, and scenario questions with explanations.
 - Capture simulated frames to a temporary contact sheet and revisit their settings.
 
-The application source is available here as a work in progress. There is no hosted deployment yet.
+The application source is available here as a work in progress. The workshop is hosted at https://kevintnguyen-photography.netlify.app. The custom domain photography.kevintnguyen.com is configured in Netlify; Namecheap DNS is managed separately.
 
 ## Development
 
@@ -41,9 +41,9 @@ The photographic scenes are stock reference plates, not photographs made with th
 
 Research uses Nikon F3 operating and repair documentation alongside reference photographs. Repair diagrams guide the explanation of mechanisms; they do not make the model suitable for servicing a real camera.
 
-## Planned home
+## Hosting
 
-The workshop will be deployed on a dedicated subdomain after the build is ready. A `/photography` page in my personal site’s new experience will introduce the project and link to it. The domain and deployment configuration have not been set up yet.
+Netlify builds `main` from GitHub with Node.js 22, runs `npm run build`, and publishes `dist/`. The custom domain is `photography.kevintnguyen.com`. The required Namecheap CNAME is `photography` → `kevintnguyen-photography.netlify.app`; DNS setup is pending owner action. A `/photography` introduction is prepared locally for my personal site’s new experience; publication is pending owner approval.
 
 ## License
 
